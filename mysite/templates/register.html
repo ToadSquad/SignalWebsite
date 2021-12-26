@@ -7,7 +7,7 @@
     <body>
         <form method="post" action="">
             {% csrf_token %}
-            
+            <h1>Register</h1>
             {{form.username.label}}
             <div class = "textBox">
                 {{form.username}} 
@@ -28,7 +28,7 @@
             {% for message in messages %}
                 <p id="messages">{{message}}</p>
             {% endfor %}
-            <input type="submit" value="login" class="loginbtn"> 
+            <input type="submit" value="REGISTER" class="loginbtn"> 
         </form>
     </body>
 </html>

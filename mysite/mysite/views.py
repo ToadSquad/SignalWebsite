@@ -7,14 +7,19 @@ from .forms import CreateUserForm
 
 from django.contrib.auth import authenticate, login, logout
 
+from django.contrib.auth.decorators import login_required
+
 from django.contrib import messages
 
 
 # Create your views here.
+@login_required(login_url='login')
 def homepage(request):
     return render(request,'homepage.html')
 
 def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -23,7 +28,7 @@ def loginPage(request):
 
         if user is not None:
             login(request,username)
-            redirect('')
+            redirect('/')
         else:
             messages.info(request, 'Username or Password is Incorrect')
 
@@ -33,6 +38,8 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     form = CreateUserForm()
 
     if request.method == 'POST':
