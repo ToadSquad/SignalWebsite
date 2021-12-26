@@ -8,7 +8,7 @@
 }
 body {
     min-height: 100vh;
-    background: linear-gradient(#e66465, #9198e5);
+    background: #211c1c;
 }
 form {
     background: white;
@@ -77,3 +77,80 @@ h1 {
 }
 
 
+.ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+  }
+.logo {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+header {
+    background: #55d6aa;
+        
+}
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+nav {
+    margin: auto;
+    text-align: center;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 35px;
+    position: relative;
+}
+nav a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav a:hover{
+    color: #000;
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: #444;
+
+    position: absolute;
+    top: 10;
+
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+    width: 100%;
+    
+}
+
+.user {
+    float: right;
+    top: 0px;
+    margin-right: 100;
+}

@@ -7,25 +7,28 @@
     <body>
         <form method="post" action="">
             {% csrf_token %}
-            <h1>Login</h1>
-            Username
+            
+            {{form.username.label}}
             <div class = "textBox">
-                <input type="text" placeholder="Username" name = "Username">    
+                {{form.username}} 
             </div>
-            Password
+            {{form.email.label}}
             <div class = "textBox">
-                <input type="password" placeholder="password" name = "Password">    
+                {{form.email}}   
             </div>
-            <input type="submit" value="login" class="loginbtn">
-            {{forms.errors}} 
+            {{form.password1.label}}
+            <div class = "textBox">
+                {{form.password1}}
+            </div>
+            {{form.password2.label}}
+            <div class = "textBox">
+                {{form.password2}} 
+            </div>
+            {{forms.errors}}
             {% for message in messages %}
                 <p id="messages">{{message}}</p>
             {% endfor %}
-            <div>
-                Dont have an account?
-                </br>
-                <a href="/register" class ="signup">Sing up</a>
-            </div>
+            <input type="submit" value="login" class="loginbtn"> 
         </form>
     </body>
 </html>

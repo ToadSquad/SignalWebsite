@@ -8,7 +8,7 @@
 }
 body {
     min-height: 100vh;
-    background: linear-gradient(#e66465, #9198e5);
+    background: linear-gradient(blue, #9198e5);
 }
 form {
     background: white;
@@ -19,33 +19,35 @@ form {
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+    color: black;
+    border: 2px solid black;
 }
+
 h1 {
     text-align: center;
     margin-bottom: 45;
-    color: white;
+    color: black;
     font-size: 20px;
 
 }
 
 .textBox{
-    border-bottom: 2px solid white;
+    border: 2px solid black;
     position: relative;
-    margin: 35px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-.textBox{
-    border-bottom: 2px solid white;
-    position: relative;
-    margin: 35px;
-}
 
 .textBox input{
-    background: none;
+    background: grey;
     border: none;
     outline: none;
     width: 100%;
-    color: white;
+    height: 8%;
+    
+    color: black;
 
 }
 
