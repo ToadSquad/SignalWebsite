@@ -1,0 +1,26 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static '/signal.css'%}">
+    </head>
+    <header>
+        <div class="container">
+            {% load static %}
+            <img alt="logo" class="logo" src="{% static '/images/logo.svg'%}">
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/signals">Signals</a></li>
+                    <li><a href="#">About</a></li>    
+                </ul>
+            </nav>
+        </div>
+        <div class="user">
+            <span> User: {{request.user}}</span>
+            <span><a href="/logout">Logout</a></span>
+        <div>
+    </header>
+    <body>
+        <iframe class="frame" src="https://harmonicpattern.com/whitelabel?token=buft5496jeidq3n9uj90&amp;email=justinp101234@gmail.com">Your browser does not support iframes.</iframe>
+    </body>
+</html>

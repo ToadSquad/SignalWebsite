@@ -53,3 +53,7 @@ def register(request):
     
 def css(request):
     return render(request,'main.css')
+    
+@login_required(login_url='/login')
+def signals(request):
+    return render(request,'signals.html')
