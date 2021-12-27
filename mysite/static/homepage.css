@@ -154,3 +154,35 @@ nav a:hover::before {
     top: 0px;
     margin-right: 100;
 }
+
+.pricetable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricetable thead tr {
+    background-color: green;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    
+}
+
+.pricetable th,td{
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+}
+.pricetable th:hover,td:hover{
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+
+    color: black;
+}
+.pricetable tbody tr{
+    border-bottom: 1px solid #dddddd;
+}

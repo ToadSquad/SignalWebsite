@@ -3,6 +3,7 @@
         <title>Homepage</title>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static '/homepage.css'%}">
+        <script type="text/javascript" src="{% static '/coinlist.js'%}"></script>
         
     </head>
     <header>
@@ -22,4 +23,17 @@
             <span><a href="/logout">Logout</a></span>
         <div>
     </header>
+    <body>
+        <table class="pricetable table-sortable">
+            <thead>
+            <tr>
+                <th data-column="symbol" data-order="desc">Symbol</th>
+                <th data-column="price" data-order="desc">Price</th>
+                <th data-column="market cap" data-order="desc">Market Cap</th>
+                <th data-column="24hour" data-order="desc">24 Hour Change</th>
+            </tr>
+            </thead>
+            <tbody id="pricedata"></tbody>
+        </table>    
+    </body>>
 </html>

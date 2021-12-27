@@ -13,7 +13,7 @@ from django.contrib import messages
 
 
 # Create your views here.
-@login_required(login_url='/login')
+#@login_required(login_url='/login')
 def homepage(request):
     return render(request,'homepage.html')
 
@@ -28,7 +28,7 @@ def loginPage(request):
 
         if user is not None:
             login(request,user)
-            redirect('/')
+            return redirect('/')
         else:
             messages.info(request, 'Username or Password is Incorrect')
 
