@@ -69,9 +69,11 @@ h1 {
 }
 
 .signup {
-    color: white;
+    color: rgb(0, 17, 255);
     margin-top: 45px;
     text-align: center;
+    border-bottom: 1px #0015ff;
+    border-bottom-style: solid;
 
 }
 .signup a  {
