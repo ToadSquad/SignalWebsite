@@ -57,3 +57,6 @@ def css(request):
 @login_required(login_url='/login')
 def signals(request):
     return render(request,'signals.html')
+
+def signalsob(request):
+    return render(request,'signalpage.html')

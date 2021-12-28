@@ -101,3 +101,8 @@ nav a:hover::before {
     width: 100%;
     
 }
+.user {
+    float: right;
+    top: 0px;
+    margin-right: 100;
+}

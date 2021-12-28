@@ -27,6 +27,7 @@ urlpatterns = [
     path('register/', views.register),
     path('logout/', views.logoutUser),
     path('signals/', views.signals),
+    path('signalsob/', views.signalsob),
     
 ]
 
