@@ -32,14 +32,21 @@ var table = document.getElementById("pricedata")
 
 for (var x = 0; x < data.length; x++){
     var row = `<tr>
-            <td>${data[x]["name"]}</td>
-            <td>${data[x]["current_price"]}</td>
-            <td>${data[x]["market_cap"]}</td>
-            <td>${data[x]["price_change_percentage_24h"]}</td>
+            <td><img src="${data[x]["image"]}" alt="" border=3 height=30 width=30></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
+            <td>$${numberWithCommas(data[x]["current_price"])}</td>
+            <td>$${numberWithCommas(data[x]["market_cap"])}</td>
+            <td>${data[x]["price_change_percentage_24h"]}%</td>
             </tr>
     `
     table.innerHTML += row
 }
+}
+function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
 }
 function apiCall(url){
     const Httpnew = new XMLHttpRequest();
@@ -58,12 +65,12 @@ function populateTable(data){
     table.innerHTML = ''
     for (var x = 0; x < data.length; x++){
         var row = `<tr>
-                <td>${data[x]["name"]}</td>
-                <td>${data[x]["current_price"]}</td>
-                <td>${data[x]["market_cap"]}</td>
-                <td>${data[x]["price_change_percentage_24h"]}</td>
-                </tr>
-        `
+        <td><img src="${data[x]["image"]}" alt="" border=3 height=30 width=30></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
+        <td>$${numberWithCommas(data[x]["current_price"])}</td>
+        <td>$${numberWithCommas(data[x]["market_cap"])}</td>
+        <td>${data[x]["price_change_percentage_24h"]}%</td>
+        </tr>
+`
         
         table.innerHTML += row
     }
@@ -74,15 +81,16 @@ function sortTable() {
     console.log('Coloumn was clicked '+column+' '+order)
     var data = null
     
-
-
     var text = $(this).html()
-    text = text.substring(0,text.length-1)
+    
+
+    
 
     if(column=="symbol"){
         if(order == "asc"){
             
             $(this).data('order','dsc')
+            text = text.substring(0,text.length-1)
             text += '&#9660'
             urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=id_desc&per_page=100&page=1&sparkline=false"
             const Httpnew = new XMLHttpRequest();
@@ -96,7 +104,9 @@ function sortTable() {
         }
         
         else{
+            
             $(this).data('order','asc')
+            text = text.substring(0,text.length-1)
             text += '&#9650'
             urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=id_asc&per_page=100&page=1&sparkline=false"
             const Httpnew = new XMLHttpRequest();
@@ -113,12 +123,14 @@ function sortTable() {
         if(order == "asc"){
             
             $(this).data('order','dsc')
+            text = text.substring(0,text.length-1)
             text += '&#9660'
             urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
             apiCall(urlnew)
         }
         else {
             $(this).data('order','asc')
+            text = text.substring(0,text.length-1)
             text += '&#9650'
             urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_asc&per_page=100&page=1&sparkline=false"
             apiCall(urlnew)
