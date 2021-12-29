@@ -168,7 +168,7 @@ nav a:hover::before {
 .pricetable thead tr {
     background-color: green;
     color: white;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     
 }
@@ -176,6 +176,14 @@ nav a:hover::before {
 .pricetable th,td{
     padding: 12px 15px;
     border: 1px solid #dddddd;
+    text-align: center;
+}
+.coin {
+    text-align: left;
+}
+.image {
+    border: none;
+
 }
 .pricetable th:hover,td:hover{
     padding: 12px 15px;

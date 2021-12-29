@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Signals</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static '/signal.css'%}">
+        <link rel="shortcut icon" href="{% static '/images/logo.svg'%}">
+    </head>
+    <header>
+        <div class="container">
+            {% load static %}
+            <img alt="logo" class="logo" src="{% static '/images/logo.svg'%}">
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/signals">Signals</a></li>
+                    <li><a href="/signalsob ">Signals (order book)</a></li>
+                    <li><a href="#">About</a></li>    
+                </ul>
+            </nav>
+        </div>
+        <div class="user">
+            <span> User: {{request.user}}</span>
+            <span><a href="/logout">Logout</a></span>
+        <div>
+    </header>
+    <body>
+        {{ETHUSDT}}
+{{BTCUSDT}}
+{{XRPUSDT}}
+{{NEOUSDT}}
+{{XRPUSDT}}
+{{DASHUSDT}}
+{{LTCUSDT}}
+{{EOSUSDT}}
+{{ETCUSDT}}
+{{DOGEUSDT}}
+{{SHIBUSDT}}
+{{LUNAUSDT}}
+{{LINKUSDT}}
+{{ADAUSDT}}
+{{BTTUSDT}}
+{{STORJUSDT}}
+{{DOTUSDT}}
+{{XLMUSDT}}
+{{SOLUSDT}}
+{{XMRUSDT}}
+{{HNTUSDT}}
+{{ILVUSDT}}
+{{CAKEUSDT}}
+{{MATICUSDT}}
+{{BTTUSDT}}
+{{IOTAUSDT}}
+{{OMGUSDT}}
+{{TRXUSDT}}
+{{XTZUSDT}}
+{{ZECUSDT}}
+    </body>
+</html>

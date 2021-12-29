@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 
 from .forms import CreateUserForm
 
+from .cryptoOrderBookScanner import BinanceScanner
+
 from django.contrib.auth import authenticate, login, logout
 
 from django.contrib.auth.decorators import login_required
@@ -59,4 +61,8 @@ def signals(request):
     return render(request,'signals.html')
 
 def signalsob(request):
-    return render(request,'signalpage.html')
+    context = {}
+    data = BinanceScanner(5,2)
+    data.run()
+    context = data.obTriggerList
+    return render(request,'signalpage.html',context)

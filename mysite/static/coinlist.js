@@ -19,7 +19,7 @@ function handler(){
 }
 
 const Http = new XMLHttpRequest();
-const url="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
+const url="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C1y";
 Http.open("GET", url);
 Http.send();
 
@@ -32,16 +32,20 @@ var table = document.getElementById("pricedata")
 
 for (var x = 0; x < data.length; x++){
     var row = `<tr>
-            <td><img src="${data[x]["image"]}" alt="" border=3 height=30 width=30></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
-            <td>$${numberWithCommas(data[x]["current_price"])}</td>
-            <td>$${numberWithCommas(data[x]["market_cap"])}</td>
-            <td>${data[x]["price_change_percentage_24h"]}%</td>
-            </tr>
-    `
+    <td class="coin"><img class = "image" src="${data[x]["image"]}" alt="" border=3 height=30 width=30></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
+    <td>$${numberWithCommas(data[x]["current_price"])}</td>
+    <td>$${numberWithCommas(data[x]["market_cap"])}</td>
+    <td>${(data[x]["price_change_percentage_1h_in_currency"]).toPrecision(2)}%</td>
+    <td>${(data[x]["price_change_percentage_24h_in_currency"]).toPrecision(2)}%</td>
+    <td>${(data[x]["price_change_percentage_7d_in_currency"]).toPrecision(2)}%</td>
+    <td>${(data[x]["price_change_percentage_1y_in_currency"]).toPrecision(4)}%</td>
+    </tr>
+`
     table.innerHTML += row
 }
 }
 function numberWithCommas(x) {
+    if(x<1){return x;}
     x = x.toString();
     var pattern = /(-?\d+)(\d{3})/;
     while (pattern.test(x))
@@ -65,12 +69,15 @@ function populateTable(data){
     table.innerHTML = ''
     for (var x = 0; x < data.length; x++){
         var row = `<tr>
-        <td><img src="${data[x]["image"]}" alt="" border=3 height=30 width=30></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
+        <td class="coin"><img class = "image" src="${data[x]["image"]}" alt="" border=3 height=30 width=30></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
         <td>$${numberWithCommas(data[x]["current_price"])}</td>
         <td>$${numberWithCommas(data[x]["market_cap"])}</td>
-        <td>${data[x]["price_change_percentage_24h"]}%</td>
+        <td>${(data[x]["price_change_percentage_1h_in_currency"]).toPrecision(2)}%</td>
+        <td>${(data[x]["price_change_percentage_24h_in_currency"]).toPrecision(2)}%</td>
+        <td>${(data[x]["price_change_percentage_7d_in_currency"]).toPrecision(2)}%</td>
+        <td>${(data[x]["price_change_percentage_1y_in_currency"]).toPrecision(4)}%</td>
         </tr>
-`
+    `
         
         table.innerHTML += row
     }
@@ -92,7 +99,7 @@ function sortTable() {
             $(this).data('order','dsc')
             text = text.substring(0,text.length-1)
             text += '&#9660'
-            urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=id_desc&per_page=100&page=1&sparkline=false"
+            urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=id_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C1y"
             const Httpnew = new XMLHttpRequest();
             Httpnew.open("GET", urlnew);
             Httpnew.send();
@@ -108,7 +115,7 @@ function sortTable() {
             $(this).data('order','asc')
             text = text.substring(0,text.length-1)
             text += '&#9650'
-            urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=id_asc&per_page=100&page=1&sparkline=false"
+            urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=id_asc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C1y"
             const Httpnew = new XMLHttpRequest();
             Httpnew.open("GET", urlnew);
             Httpnew.send();
@@ -125,14 +132,14 @@ function sortTable() {
             $(this).data('order','dsc')
             text = text.substring(0,text.length-1)
             text += '&#9660'
-            urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+            urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C1y"
             apiCall(urlnew)
         }
         else {
             $(this).data('order','asc')
             text = text.substring(0,text.length-1)
             text += '&#9650'
-            urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_asc&per_page=100&page=1&sparkline=false"
+            urlnew = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_asc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C1y"
             apiCall(urlnew)
         }
 
