@@ -14,7 +14,9 @@ window.addEventListener("load", function(){
                             <div class="text">${elements[element].innerText}</div>
                       </div>
             `
+            elements[element].innerHTML = ''
         }
+        
         
     }
     console.log(string)
