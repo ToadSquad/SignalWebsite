@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 
 from .forms import CreateUserForm
+from .scriptmanager import script
 
 from .cryptoOrderBookScanner import BinanceScanner
 
@@ -12,7 +13,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from django.contrib import messages
+import pickle
 
+obdata = None
 
 # Create your views here.
 #@login_required(login_url='/login')
@@ -61,8 +64,14 @@ def signals(request):
     return render(request,'signals.html')
 
 def signalsob(request):
+    global obdata
     context = {}
-    data = BinanceScanner(5,2)
-    data.run()
-    context = data.obTriggerList
+    file = open("triggers.dat", "rb")
+    context = pickle.load(file)
+    print(context)
+    file.close()
     return render(request,'signalpage.html',context)
+def ob(request):
+    global obdata
+    obdata = script()
+    return redirect("/signalsob")

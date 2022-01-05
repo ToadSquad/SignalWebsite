@@ -28,6 +28,7 @@ urlpatterns = [
     path('logout/', views.logoutUser),
     path('signals/', views.signals),
     path('signalsob/', views.signalsob),
+    path('startOB/', views.ob),
     
 ]
 

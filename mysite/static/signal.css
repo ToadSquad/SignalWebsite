@@ -106,3 +106,17 @@ nav a:hover::before {
     top: 0px;
     margin-right: 100;
 }
+
+.triggers{
+    background-color: black;
+
+}
+.triggers .card {
+    background-color: black;
+    border-radius: 10px;
+    flex-direction: row;
+}
+
+.coins {
+    visibility: visible;
+}
