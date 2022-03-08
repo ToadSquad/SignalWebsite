@@ -6,14 +6,14 @@ class BinanceScanner():
         self.api_secret = 'i5IiWEsnR9gssVXqXDzJS4Us1jAlyWCsH21fuSJ39ITKHTQPDtQdR3fFOH3fwJdI'
         self.client = Client(self.api_key, self.api_secret, {"verify": False, "timeout": 20})
         self.obTriggerList = {}
-        self.symbols = ['ETHUSDT','BTCUSDT','XRPUSDT','NEOUSDT','XRPUSDT','DASHUSDT','LTCUSDT','EOSUSDT','ETCUSDT','DOGEUSDT','SHIBUSDT','LUNAUSDT', 'LINKUSDT', 'ADAUSDT', 'BTTUSDT', 'STORJUSDT', 'DOTUSDT', 'XLMUSDT','SOLUSDT','XMRUSDT','HNTUSDT','ILVUSDT','CAKEUSDT','MATICUSDT','BTTUSDT','IOTAUSDT','OMGUSDT','TRXUSDT','XTZUSDT','ZECUSDT']
+        self.symbols = ['ETHUSDT','BTCUSDT','XRPUSDT','NEOUSDT','DASHUSDT','LTCUSDT','EOSUSDT','ETCUSDT','DOGEUSDT','LUNAUSDT', 'LINKUSDT', 'ADAUSDT', 'BTTUSDT', 'STORJUSDT', 'DOTUSDT', 'XLMUSDT','SOLUSDT','XMRUSDT','HNTUSDT','ILVUSDT','CAKEUSDT','MATICUSDT','BTTUSDT','IOTAUSDT','OMGUSDT','TRXUSDT','XTZUSDT','ZECUSDT']
         self.diff = diff
         self.ratio = ratio
         #self.symbols = ['BTCUSDT']
         #self.getSymbols()
-        
-             
                 
+    def getPrice(self,symbol):
+        return self.client.get_avg_price(symbol=symbol)['price']           
     def run(self):
         for s in self.symbols:
             self.obTriggerList[s]= {}
@@ -59,9 +59,9 @@ class BinanceScanner():
             #Secondary Screening Net Inflow aka Motivated Buyers/Sellers
 
             print('Enter Buy Trade '+symbol+'ratio: '+str(ratio)+'upper: '+format(upper,'.8f') + ' lower: '+format(lower,'.8f'))
-            self.obTriggerList[symbol] = 'Enter Buy Trade '+symbol+' ratio: '+str(ratio)+' upper: '+str(upper) + 'lower: '+str(lower)
+            self.obTriggerList[symbol] = 'Enter Buy Trade '+symbol+' ratio: '+str(ratio)+' upper: '+str(upper) + ' lower: '+str(lower)+ ' entered: '+str(depth['bids'][0][0])
             
         elif(ratio <= (1/self.ratio)):#differential<-1000000
             print('Enter Sell Trade'+symbol+'ratio: '+str(ratio)+'upper: '+str(upper) + ' lower: '+str(lower))
-            self.obTriggerList[symbol] = 'Enter Sell Trade '+symbol+' ratio: '+str(ratio)+' upper: '+format(upper,'.8f') + ' lower: '+format(lower,'.8f')
+            self.obTriggerList[symbol] = 'Enter Sell Trade '+symbol+' ratio: '+str(ratio)+' upper: '+format(upper,'.8f') + ' lower: '+format(lower,'.8f') + ' entered: '+str(depth['bids'][0][0])
 

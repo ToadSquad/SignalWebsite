@@ -27,12 +27,13 @@ SECRET_KEY = 'django-insecure-8n%8pk!e1#no86*%vfz%3dt4(*e9%vdk-e3qjb-%1-_a)ygtp%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+#ALLOWED_HOSTS = ['167.99.236.115']
+DEFAULT_PORT = "8080" 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'mysite',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

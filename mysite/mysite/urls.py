@@ -29,7 +29,7 @@ urlpatterns = [
     path('signals/', views.signals),
     path('signalsob/', views.signalsob),
     path('startOB/', views.ob),
-    
+    path('signalspattern/', views.signalspattern),
 ]
 
 if settings.DEBUG:

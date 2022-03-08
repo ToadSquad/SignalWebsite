@@ -43,13 +43,11 @@
                 <tr>
                     <th data-column="symbol" data-order="desc">Symbol </th>
                     <th data-column="Direction" data-order="desc">Direction </th>
-                    <th data-column="Ratio" data-order="desc">Ratio</th>
-                    <th data-column="Upper" data-order="desc">Upper</th>
-                    <th data-column="Lower" data-order="desc">Lower </th>
-                    <th data-column="Time" data-order="desc">Time</th>
-                    <th data-column="Profit" data-order="desc">Price Entered</th>
-                    <th data-column="P/L" data-order="desc">P/L</th>
-                    <th data-column="Entered" data-order="desc">Entered</th>
+                    <th data-column="Pattern" data-order="desc">Pattern</th>
+                    <th data-column="Time" data-order="desc">Enter Time</th>
+                    <th data-column="PriceEntered" data-order="desc">Price Entered </th>
+                    <th data-column="active" data-order="desc">active</th>
+                    <th data-column="Profit" data-order="desc">Profit</th>
                 </tr>
             </thead>
             <h3>Total Profit: {{totalProfit}}</h3>
@@ -60,13 +58,11 @@
             <tr>
             <td>{{trigger.symbol}} </td>
             <td class={{trigger.direction}}>{{trigger.direction}}</td>
-            <td>{{trigger.ratio}}</td>
-            <td>{{trigger.upper}}</td>
-            <td>{{trigger.lower}}</td>
-            <td class="time">{{trigger.time}}</td>
+            <td>{{trigger.pattern}}</td>
+            <td>{{trigger.time}}</td>
+            <td>{{trigger.priceEntered}}</td>
+            <td class="time">{{trigger.activeUntil}}</td>
             <td>{{trigger.profit}}</td>
-            <td class="PL">{{trigger.currentPL}}</td>
-            <td class={{trigger.priceEntered}}>{{trigger.priceEntered}}</td>
             </tr>
             {% endfor %}
             </tbody>

@@ -1,3 +1,10 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    }
 .frame {
     width:100%;
     height: 100%;
@@ -116,14 +123,108 @@ nav a:hover::before {
     grid-row-gap: 20px;
 
 }
-.triggers .card {
-    background-color: grey;
+.triggers .cardbuy {
+    background-color: green;
     border-radius: 200px;
     border-top: 10px;
     padding: 1em;
     flex-direction: row;
+    color: white;
+}
+.triggers .cardsell {
+    background-color: #e66465;
+    border-radius: 200px;
+    border-top: 10px;
+    padding: 1em;
+    flex-direction: row;
+    color: white;
 }
 
 .coins {
     visibility: visible;
 }
+iframe {
+    height: auto;
+    width: auto;
+    margin: auto;
+}
+
+h1 {
+    color: white;
+}
+
+
+.signaltable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signaltable thead tr {
+    background-color: green;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+.signaltable th,td{
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    text-align: center;
+}
+
+.Buy {
+    color: green;
+}
+.Sell {
+    color: red;
+}
+
+.loss {
+    color: red;
+}
+.profit {
+    color: green;
+}
+
+form {
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+    background: #211c1c;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 45;
+    color: white;
+    font-size: 20px;
+
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    color: black;
+    border: 2px solid black;
+  }
+
+  .buttons {
+    text-align: center;
+
+  }
+  h3 {
+      color: white;
+      text-align: center;
+  }
