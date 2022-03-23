@@ -98,11 +98,11 @@ def signalsob(request):
     print(context)
     #file.close()
     
-    return render(request,'patternpage.html',context)
+    return render(request,'signalpage.html',context)
 def signalspattern(request):
     context = {}
     context['triggers'] = patternData.objects.all()
-    return render(request,'signalpage.html',context)
+    return render(request,'patternpage.html',context)
 def ob(request):
     global obdata
     obdata = script()
