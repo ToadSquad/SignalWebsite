@@ -61,7 +61,7 @@ class script():
                                 }
 
                            response = requests.request("GET", url, headers=headers).json()
-                           if((response["fgi"]["now"]["value"]>50 and triggerArr[1]=="Buy") or response["fgi"]["now"]["value"]<50 and triggerArr[1]=="Sell"):
+                           if((response["fgi"]["now"]["value"]>25 and triggerArr[1]=="Buy") or response["fgi"]["now"]["value"]<75 and triggerArr[1]=="Sell"):
                                instance = triggerData(None,triggerArr[3],triggerArr[1],triggerArr[5],triggerArr[7],triggerArr[9],datetime.datetime.now(),"entered","0",triggerArr[11])
                                instance.save()
                                if(triggerArr[1]=="Buy"):
@@ -70,12 +70,12 @@ class script():
 
                 
                #Run Pattern Data
-                #self.patterndata.run()
-                #for trigger in self.patterndata.triggerData:
-                #    for item in self.patterndata.refinedTriggers[trigger]:
-                #        triggerArr = item.split(" ")
-                #        instance = patternData(None,triggerArr[0],triggerArr[3],triggerArr[6],datetime.datetime.now())
-                #        instance.save()
+                self.patterndata.run()
+                for trigger in self.patterndata.triggerData:
+                    for item in self.patterndata.refinedTriggers[trigger]:
+                        triggerArr = item.split(" ")
+                        instance = patternData(None,triggerArr[0],triggerArr[3],triggerArr[6],datetime.strptime(triggerArr[8]+triggerArr[9],"%Y/%m/%d %H:%M:%S"))
+                        instance.save()
                
                 firstRun = False
                 print("------------------DONE------------------")
