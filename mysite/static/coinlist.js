@@ -32,7 +32,7 @@ var table = document.getElementById("pricedata")
 
 for (var x = 0; x < data.length; x++){
     var row = `<tr>
-    <td class="coin"><img class = "image" src="${data[x]["image"]}" alt="" border=3 height=30 width=30></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
+    <td class="coin"><img class = "image" src="${data[x]["image"]}" alt="" border=3 height=16 width=16></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
     <td>$${numberWithCommas(data[x]["current_price"])}</td>
     <td>$${numberWithCommas(data[x]["market_cap"])}</td>
     <td>${(data[x]["price_change_percentage_1h_in_currency"]).toPrecision(2)}%</td>
@@ -69,7 +69,7 @@ function populateTable(data){
     table.innerHTML = ''
     for (var x = 0; x < data.length; x++){
         var row = `<tr>
-        <td class="coin"><img class = "image" src="${data[x]["image"]}" alt="" border=3 height=30 width=30></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
+        <td class="coin"><img class = "image" src="${data[x]["image"]}" alt="" border=3 height=16 width=16></img>${" "+data[x]["name"].toUpperCase()+" ("+data[x]["symbol"].toUpperCase()+")"}</td>
         <td>$${numberWithCommas(data[x]["current_price"])}</td>
         <td>$${numberWithCommas(data[x]["market_cap"])}</td>
         <td>${(data[x]["price_change_percentage_1h_in_currency"]).toPrecision(2)}%</td>
